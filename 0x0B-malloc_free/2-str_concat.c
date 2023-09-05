@@ -4,10 +4,10 @@
 
 /**
  * str_concat - concatenates two strings.
- * @s1: the first string to concatenate.
- * @s2: the second string to concatenate.
+ * @s1: the first string.
+ * @s2: the second string.
  *
- * Returns: the two strings concatenated.
+ * Return: pointer to the new string or NULL if failure.
  */
 
 char *str_concat(char *s1, char *s2)
