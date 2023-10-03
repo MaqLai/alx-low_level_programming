@@ -14,15 +14,8 @@
 int append_text_to_file(const char *filename, char *text_content)
 {
 	FILE *file = fopen(filename, "a");
-	size_t txt_len = strlen(text_content);
-	size_t bytes_wrtn = fwrite(text_content, 1, txt_len, file);
 
-	if (filename == NULL)
-	{
-		return (-1);
-	}
-
-	if (text_content == NULL)
+	if (filename == NULL || text_content == NULL)
 	{
 		return (-1);
 	}
@@ -32,7 +25,7 @@ int append_text_to_file(const char *filename, char *text_content)
 		return (-1);
 	}
 
-	if (bytes_wrtn != txt_len)
+	if (fputs(text_content, file) == EOF)
 	{
 		fclose(file);
 		return (-1);
